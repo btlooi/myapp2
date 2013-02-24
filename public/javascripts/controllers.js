@@ -20,6 +20,7 @@ function AddPostCtrl($scope, $http, $location) {
 }
 
 function ReadPostCtrl($scope, $http, $routeParams) {
+  console.log("read post");
   $http.get('/api/post/' + $routeParams.id).
     success(function(data) {
       $scope.post = data.post;
@@ -58,3 +59,8 @@ function DeletePostCtrl($scope, $http, $location, $routeParams) {
     $location.url('/');
   };
 }
+
+function LogoutCtrl($scope, $http, $location) {
+  $location.url('/logout');
+}
+

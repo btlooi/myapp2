@@ -70,7 +70,7 @@ exports.login  = function(req, res){
 };
 
 
-exports.home = function(req, res){
+exports.blog = function(req, res){
 
     if (!req.isAuthenticated()) 
 	    res.redirect('/');
@@ -83,7 +83,7 @@ exports.home = function(req, res){
 	catch(err)
 	  {
 	  }
-	  res.render('home', { title: 'Express ' + name , photo : get_profile_photo(req)} );
+	  res.render('blog', { title: 'Express ' + name , photo : get_profile_photo(req)} );
 };
 
 exports.login  = function(req, res){

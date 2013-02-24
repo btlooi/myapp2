@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , api  = require('./routes/api')
   , User = require('./public/javascripts/user')
   , http = require('http')
   , path = require('path');
@@ -149,11 +150,11 @@ ogoogleStrategy = new OGoogleStrategy({
     });
 });
 
-
-
-
 passport.use(twitterStrategy);
 
+
+
+//var app = module.exports = express.createServer();
 var app = express();
 
 app.configure(function(){
@@ -182,13 +183,22 @@ app.get('/partials/:name', routes.partials);
 app.get('/login', routes.login);
 
 app.get('/index', routes.index);
-app.get('/home', routes.home);
+app.get('/blog', routes.blog);
 app.get('/users', user.list);
 
 
+app.get('/api/posts', api.posts);
+
+app.get('/api/post/:id', api.post);
+app.post('/api/post', api.addPost);
+app.put('/api/post/:id', api.editPost);
+app.delete('/api/post/:id', api.deletePost);
+
+
 app.get('/logout', function(req, res){
+  console.log("logout");
   req.logout();
-  res.redirect('/');
+  res.redirect('/login');
 });
 
 
@@ -335,6 +345,13 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/login')
 }
 
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+/*
+app.listen(app.get('port'), function(){
+  console.log("Express server listening on port %d in %s mode", app.get('port'), app.settings.env);
+});
+*/
