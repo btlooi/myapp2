@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+
+    <fieldset style="width:300px">
+    	<legend>Login</legend>
+    	<form action="/login" method="post">
+    	    <div>
+    	        <label>Username:</label>
+    	        <input type="text" name="email"/>
+    	    </div>
+    	    <div>
+    	        <label>Password:</label>
+    	        <input type="password" name="password"/>
+    	    </div>
+    	    <div>
+    	        <input type="submit" value="Log In"/>
+    	    </div>
+    	</form>
+	  </fieldset>
+
+    <a class="loginlink" href="/auth/google">Sign On with Google</a><br/>
+    <a class="loginlink" href="/auth/ogoogle">Sign On OAuth Google</a><br/>
+    <a class="loginlink" href="/usegoogle">Use Google</a><br/>
+    <a class="loginlink" href="/auth/facebook"><img src="images/login-with-facebook.png" width="154" height="22"></a><br/>
+    <a class="loginlink" href="/auth/twitter"><img src="images/sign-in-with-twitter-l.png" width="151" height="24"></a><br/>
+
+  </body>
+</html>
