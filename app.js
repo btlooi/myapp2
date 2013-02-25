@@ -185,6 +185,7 @@ app.get('/login', routes.login);
 app.get('/index', routes.index);
 app.get('/blog', routes.blog);
 app.get('/users', user.list);
+app.get('/about', routes.about);
 
 
 app.get('/api/posts', api.posts);

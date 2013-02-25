@@ -3,34 +3,40 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/zocial.css">
+
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
+    <div class="container">
+      <form class="form-signin"  action="/login" method="post">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" class="input-block-level" placeholder="Email address" name="email">
+        <input type="password" class="input-block-level" placeholder="Password"  name="password">
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-primary" type="submit">Sign in</button><br/>
+        <a href="/auth/facebook" class="loginlink zocial icon facebook">Sign in with Facebook</a>
+        <a href="/auth/ogoogle" class="loginlink zocial icon googleplus">Sign in with Google+</a>
+        <a href="/auth/twitter" class="loginlink zocial icon twitter">Sign in with Twitter</a>
+        <a href="#" class="loginlink zocial icon linkedin">Sign in with LinkedIn</a>
 
-    <fieldset style="width:300px">
-    	<legend>Login</legend>
-    	<form action="/login" method="post">
-    	    <div>
-    	        <label>Username:</label>
-    	        <input type="text" name="email"/>
-    	    </div>
-    	    <div>
-    	        <label>Password:</label>
-    	        <input type="password" name="password"/>
-    	    </div>
-    	    <div>
-    	        <input type="submit" value="Log In"/>
-    	    </div>
-    	</form>
-	  </fieldset>
+      </form>
+    </div>
 
+
+<div style="display:none">
     <a class="loginlink" href="/auth/google">Sign On with Google</a><br/>
     <a class="loginlink" href="/auth/ogoogle">Sign On OAuth Google</a><br/>
     <a class="loginlink" href="/usegoogle">Use Google</a><br/>
     <a class="loginlink" href="/auth/facebook"><img src="images/login-with-facebook.png" width="154" height="22"></a><br/>
     <a class="loginlink" href="/auth/twitter"><img src="images/sign-in-with-twitter-l.png" width="151" height="24"></a><br/>
+</div>
 
   </body>
 </html>

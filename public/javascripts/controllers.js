@@ -19,7 +19,7 @@ function AddPostCtrl($scope, $http, $location) {
   };
 }
 
-function ReadPostCtrl($scope, $http, $routeParams) {
+function ReadPostCtrl($scope, $http, $location, $routeParams) {
   console.log("read post");
   $http.get('/api/post/' + $routeParams.id).
     success(function(data) {

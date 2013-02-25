@@ -1,23 +1,43 @@
 <!DOCTYPE html>
-<html >
+<html>
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="/stylesheets/app.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+
   </head>
   <body>
+
+    <% include navbar.ejs %>   
+    <!--
+    <ng:include src="navbar.html"></ng:include>
+    -->
+
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <!--
      <img src="<%= photo %>" width="30px" width="30px"></img>
     <a  href="/logout">Logout</a>
+  -->
 
     <div ng-app="myApp" ng-controller="IndexCtrl">
-      <h2>My Blog</h2>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/addPost">Add a new post</a></li>
-      </ul>
-      <div ng-view></div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <h2>My Blog</h2>
+          <ul>
+            <li><a href="/blog">Home</a></li>
+            <li><a href="/addPost">Add a new post</a></li>
+          </ul>
+        </div>
+        <div class="span10">
+          <div ng-view="listview"></div>
+        </div>
+      </div>
+    </div>
+     <!-- <div ng-include="'/partials/addPost'"></div> -->
     </div>
 
     <script src="javascripts/lib/angular/angular.js"></script>

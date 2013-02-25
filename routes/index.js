@@ -1,4 +1,5 @@
 
+var userinfo = {};
 
 function get_profile_photo(req)
 {
@@ -58,11 +59,12 @@ exports.index = function(req, res){
 	       	}
 	    }   	
 	    var name = req.user.identifier + " " + req.user.displayName + " " + req.user.emails[0].value;
+	    var email = req.user.emails[0].value;
 	  }
 	catch(err)
 	  {
 	  }
-	  res.render('index', { title: 'Express ' + name , username : username , photo : photo });
+	  res.render('index', { email : email, title: 'Express ' + name , username : username , photo : photo });
 };
 
 exports.login  = function(req, res){
@@ -79,11 +81,12 @@ exports.blog = function(req, res){
 	  {
 	    console.log(req);
 	    var name = req.user.identifier + " " + req.user.displayName + " " + req.user.emails[0].value;
+	    var email = req.user.emails[0].value;
 	  }
 	catch(err)
 	  {
 	  }
-	  res.render('blog', { title: 'Express ' + name , photo : get_profile_photo(req)} );
+	  res.render('blog', { email : email, title: 'Express ' + name , photo : get_profile_photo(req)} );
 };
 
 exports.login  = function(req, res){
@@ -93,4 +96,9 @@ exports.login  = function(req, res){
 exports.partials = function (req, res) {
   var name = req.params.name;
   res.render('partials/' + name);
+};
+
+exports.about = function (req, res) {
+  var name = req.params.name;
+  res.render('about', { email : "looibt@gmail.com" , photo : get_profile_photo(req), title: 'Express' });
 };
