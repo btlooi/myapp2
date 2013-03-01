@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="/stylesheets/app.css">
     <link rel="stylesheet" href="/stylesheets/bootstrap.css">
 
+    <link type="text/css" href="/javascripts/rtc/newstyle.css" rel="stylesheet"></link>
+    <script src="/javascripts/rtc/cwebrtc.io.js"></script>
+    <script src="/javascripts/rtc/script.js"></script>
+
   </head>
   <body>
 
@@ -25,14 +29,26 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span2">
+        <div class="span3">
           <h2>My Blog</h2>
-          <ul>
-            <li><a href="/blog">Home</a></li>
-            <li><a href="/addPost">Add a new post</a></li>
+          <ul class="nav nav-list">
+            <li><a href="/blog" ng-click="vcontrol=''">Home</a></li>
+            <li><a href="/addPost" ng-click="vcontrol=''">Add a new post</a></li>
+            <li><a href="/whoisonline" ng-click="vcontrol=''">Who's online</a></li>
+            <li><a href="/contact" ng-click="vcontrol='/partials/vcontrol'">Contact Center</a></li>
           </ul>
+
+           <div ng-switch on="vcontrol" ng-init="vcontrol=''">
+             <div ng-switch-when=""></div>
+             <div ng-switch-default>
+                <select ng-model="$parent.room" ng-options="item for item in items"></select>
+                <br/><span>Join room {{$parent.room}}</span>
+             </div>
+           </div>  
+           <div ng-include="vcontrol"></div>
+
         </div>
-        <div class="span10">
+        <div class="span9">
           <div ng-view="listview"></div>
         </div>
       </div>

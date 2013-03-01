@@ -1,0 +1,7 @@
+<div ng-controller="AddVideoCtrl">
+<input class="btn btn-large btn-primary" type="button" value="{{webcam}}" ng-click="startvideo()"></input>
+<input class="btn btn-large btn-primary" type="button" ng-disabled="!von"  value="Join {{room}}" ng-click="join_room({'room' : room})">
+</input>
+<input class="btn btn-large btn-primary" type="button" ng-disabled="!von"  value="Leave" ng-click="leave_room()"></input>
+<br/><span> Status : {{status}} </span>
+</div>

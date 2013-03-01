@@ -20,7 +20,6 @@ var passport = require('passport')
 
 
 
-
 /*
 passport.serializeUser(function(user, done) {
   console.log(user.id);
@@ -184,10 +183,11 @@ app.get('/login', routes.login);
 
 app.get('/index', routes.index);
 app.get('/blog', routes.blog);
-app.get('/users', user.list);
+//app.get('/users', user.list);
 app.get('/about', routes.about);
 
 
+app.get('/api/users', api.users);
 app.get('/api/posts', api.posts);
 
 app.get('/api/post/:id', api.post);
@@ -248,6 +248,7 @@ app.get('/auth/google', useGoogle,
   passport.authenticate('google', { failureRedirect: '/' }),
   function(req, res) {
     res.redirect('/index');
+    connections++;
   });
 
 // GET /auth/google/return

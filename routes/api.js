@@ -17,8 +17,41 @@ var data = {
   ]
 };
 
-// GET
 
+var users = [
+    {
+      "name": "user 1",
+      "email": "user1@godfd.com"
+    },
+    {
+      "name": "user 2",
+      "email": "user2@godfd.com"
+    },
+];
+
+
+//GET
+exports.users = function (req, res) {
+  var lusers = [];
+  users.forEach(function (user, i) {
+    lusers.push({
+      id: i,
+      name: user.name,
+      email: user.email
+    });
+  });
+  res.json({
+    users: lusers
+  });
+};
+
+
+exports.userjoin = function (req, res) {
+    users.push({name: req.user.name, email: req.user.emails[0].value});
+};
+
+
+// GET
 exports.posts = function (req, res) {
   var posts = [];
   data.posts.forEach(function (post, i) {

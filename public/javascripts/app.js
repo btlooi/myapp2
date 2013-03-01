@@ -9,6 +9,10 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
         templateUrl: '/partials/index',
         controller: IndexCtrl,
       }).
+      when('/whoisonline', {
+        templateUrl: '/partials/whoisonline',
+        controller: WhoIsOnlineCtrl,
+      }).
       when('/blog', {
         templateUrl: '/partials/index',
         controller: IndexCtrl,
@@ -16,6 +20,10 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
       when('/addPost', {
         templateUrl: '/partials/addPost',
         controller: AddPostCtrl,
+      }).
+      when('/contact', {
+        templateUrl: '/partials/addvideo',
+        controller: AddVideoCtrl,
       }).
       when('/readPost/:id', {
         templateUrl: '/partials/readPost',

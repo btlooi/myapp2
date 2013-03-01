@@ -1,3 +1,4 @@
+var api  = require('./api.js');
 
 var userinfo = {};
 
@@ -35,7 +36,9 @@ function get_profile_photo(req)
 exports.index = function(req, res){
 
     if (!req.isAuthenticated()) 
+    {	
 	    res.redirect('/');
+	}   
 
 	try
 	  {
@@ -60,6 +63,7 @@ exports.index = function(req, res){
 	    }   	
 	    var name = req.user.identifier + " " + req.user.displayName + " " + req.user.emails[0].value;
 	    var email = req.user.emails[0].value;
+	    api.userjoin(req,res);
 	  }
 	catch(err)
 	  {
@@ -68,7 +72,7 @@ exports.index = function(req, res){
 };
 
 exports.login  = function(req, res){
-  res.render('login', { title: 'Express'});
+	res.render('login', { title: 'Express'});
 };
 
 
